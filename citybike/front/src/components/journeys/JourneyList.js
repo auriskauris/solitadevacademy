@@ -1,25 +1,39 @@
-import {useState} from "react";
+import { useState } from "react";
 
-const JourneyList = ({allJourneys}) => {
-    
- 
+
+//Display all data from database
+const JourneyList = () => {
+    const [journeys, setJourneys] = useState();
+
+
     return (
-        <div>
-            <h1>All journeys</h1>
-            {journeys.map(c =>
-            
-            <div key={c.journeys_id}>
-
-                Departure day and time: {c.journeys_departure}<br></br>
-                Return day and time: {c.journeys_return}<br></br>
-                Departure station: {c.journeys_d_station_id}<br></br>
-                Return station: {c.journeys_r_station_id}<br></br>
-                Travelled distance: {c.journeys_distance}<br></br>
-                Travel duration: {c.journeys_duration}
-                </div>
-            )} 
-            
+        <div className="container">
+            <h3 className="p-3 text-center">All journeys</h3>
+            <table className="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Departure time</th>
+                        <th>Return time</th>
+                        <th>Departure station</th>
+                        <th>Return station</th>
+                        <th>Travelled distance</th>
+                        <th>Travel duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {journeys && journeys.map(journey =>
+                        <tr key={journey.id}>
+                            <td>{journey.departure}</td>
+                            <td>{journey.return}</td>
+                            <td>{journey.d_station_id}</td>
+                            <td>{journey.r_station_id}</td>
+                            <td>{journey.distance}</td>
+                            <td>{journey.duration}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
         </div>
-    )
+    );
 }
-export {NotesList};
+export { JourneyList };

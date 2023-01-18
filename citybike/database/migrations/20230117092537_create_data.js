@@ -2,6 +2,15 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
+//Create database to phpMyadmin
+//cd database
+// npm init
+// npm install knex --save
+// Aja knex-init, joka luo konffaustiedoston knexfile.js.
+// nimeä tietokanta “citybike_db” ja paina enter-muihin kohtiin.
+// npx knex init
+// RUN migrates to database: npx knex migrate:latest
+// RUN seeds: npx knex seed:run
 
 
 exports.up = function(knex) {

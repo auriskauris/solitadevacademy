@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const baseUrl = '/users'
+const baseUrl = '/journeys'
 
+//GET all data from database
 
 const getAll = () => {
     const request = axios.get(baseUrl,makeHeader())
