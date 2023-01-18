@@ -1,10 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import journeyService from "../../services/journeyService";
 
 
 //Display all data from database
 const JourneyList = () => {
-    const [journeys, setJourneys] = useState();
 
+    const [journeys, setJourneys] = useState([]);
+    console.log(journeys);
+
+    const startHook = () => {
+        console.log("Meni");
+
+        journeyService.getAll()
+            .then(response => {
+                console.log("Meni4");
+                const journeys = response
+                setJourneys(journeys)
+                console.log("startHook", journeys)
+            })
+            .catch(error => {
+                console.log("ei löydy", error)
+            })
+    }
+    
+    useEffect(startHook);
 
     return (
         <div className="container">

@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 let PORT = process.env.PORT
+let SECRET = process.env.SECRET
 
 let DATABASE_OPTIONS = {
     client: process.env.DB_TYPE,
@@ -14,5 +15,6 @@ let DATABASE_OPTIONS = {
 
 module.exports = {
     DATABASE_OPTIONS,
-    PORT
+    PORT,
+    SECRET
 }
