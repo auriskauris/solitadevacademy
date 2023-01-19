@@ -8,7 +8,7 @@ const knex = require('knex')(options);
 /* GET journeys' listing. */
 router.get('/', function(req, res, next) {
   
-  knex('journeys').select('*')
+  knex('journeys').select('*').innerJoin('stations', 'stations.id', '=', 'd_station_id', 'r_stations_id')
   .then((rows) => {
       console.log(rows);
       res.json(rows);
